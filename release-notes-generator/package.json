@@ -1,0 +1,19 @@
+{
+  "name": "hedera",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "@vertesia/client": "^0.51.0",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "tiktoken": "^1.0.20"
+  }
+}

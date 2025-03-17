@@ -4,7 +4,8 @@
   "description": "Recipes used to build memory packs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "validate": "tsc --noEmit --module esnext --target es2022 --moduleResolution bundler recipes/*.ts"
   },
   "author": "",
   "license": "ISC",

@@ -1,5 +1,5 @@
-import { JsonObject } from "@becomposable/memory";
-import { copyText, json, vars } from "@becomposable/memory-commands";
+import { JsonObject } from "@vertesia/memory";
+import { copyText, json, vars } from "@vertesia/memory-commands";
 /**
  * This recipe is expecting the output content.json file
  * of the iterative api doc generation and outputs a tar containing one mdx file by section

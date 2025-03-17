@@ -14,4 +14,4 @@ jobs:
         with:
           node-version: 22
       - run: npm --prefix api-doc-gen install
-      - run: npm --prefix api-doc-gen validate
+      - run: npm --prefix api-doc-gen run validate

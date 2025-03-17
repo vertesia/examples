@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@becomposable/memory": "^0.41.0",
-    "@becomposable/memory-commands": "^0.41.0"
+    "@becomposable/memory-commands": "^0.41.0",
+    "@vertesia/memory": "^0.51.0",
+    "@vertesia/memory-commands": "^0.51.0"
   }
 }

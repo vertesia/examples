@@ -1,0 +1,17 @@
+name: test
+
+on:
+  - push
+
+jobs:
+  api-doc-gen-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm --prefix api-doc-gen install
+      - run: npm --prefix api-doc-gen run validate

@@ -1,4 +1,4 @@
-import { copy, vars } from "@becomposable/memory-commands";
+import { copy, vars } from "@vertesia/memory-commands";
 
 const { studio } = vars();
 if (!studio) {

@@ -1,0 +1,25 @@
+{
+    "name": "vertesia-magic-pdf-get-started",
+    "version": "0.0.1",
+    "description": "A sample project which aims to illustrate how to use Vertesia Magic PDF",
+    "license": "APL-2.0",
+    "author": "Vertesia",
+    "type": "module",
+    "private": true,
+    "scripts": {
+      "build": "tsc --build",
+      "clean": "tsc --build --clean",
+      "start": "npx bun ./index.ts"
+    },
+    "devDependencies": {
+      "@types/bun": "latest",
+      "@tsconfig/node-lts": "^22.0.1",
+      "dotenv": "^16.4.7",
+      "typescript": "^5.8.2"
+    },
+    "dependencies": {
+      "commander": "^13.1.0",
+      "@vertesia/client": "^0.51.0",
+      "node-web-stream-adapters": "^0.2.1"
+    }
+  }

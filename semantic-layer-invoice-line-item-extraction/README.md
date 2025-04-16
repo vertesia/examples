@@ -36,8 +36,8 @@ npm install
 
 ```bash
 cat << EOF > .env
-STUDIO_URL=https://studio-server-prod.api.vertesia.io
-ZENO_URL=https://zeno-server-prod.api.vertesia.io
+STUDIO_URL=https://studio-server-production.api.becomposable.com
+ZENO_URL=https://zeno-server-production.api.becomposable.com
 API_KEY=
 EOF
 ```

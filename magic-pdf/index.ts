@@ -1,26 +1,26 @@
-import path from 'node:path';
-import * as dotenv from 'dotenv';
-import { Command } from 'commander';
-import { StreamSource, VertesiaClient } from '@vertesia/client';
-import { createReadStream } from 'fs';
-import { createReadableStreamFromReadable } from 'node-web-stream-adapters';
+import path from "node:path";
+import * as dotenv from "dotenv";
+import { Command } from "commander";
+import { StreamSource, VertesiaClient } from "@vertesia/client";
+import { createReadStream } from "fs";
+import { createReadableStreamFromReadable } from "node-web-stream-adapters";
 import {
   DocAnalyzeRunStatusResponse,
   WorkflowExecutionStatus,
   //  DocTableJson
-} from '@vertesia/common';
-import { S } from 'fluent-json-schema';
-import papaparse from 'papaparse';
+} from "@vertesia/common";
+import { S } from "fluent-json-schema";
+import papaparse from "papaparse";
 
 // Set up command-line interface with Commander
 const program = new Command();
 program
-  .name('magic-pdf')
+  .name("magic-pdf")
   .description(
-    'Analyze a PDF file and generate a structured representation in XML',
+    "Analyze a PDF file and generate a structured representation in XML",
   )
-  .version('0.0.1')
-  .requiredOption('-i, --input <file>', 'The PDF file to upload and analyze')
+  .version("0.0.1")
+  .requiredOption("-i, --input <file>", "The PDF file to upload and analyze")
   .parse(process.argv);
 
 const options = program.opts();
@@ -38,8 +38,8 @@ const client = new VertesiaClient({
 
 // Upload PDF file
 const filename = path.basename(options.input);
-if (!filename.toLowerCase().endsWith('.pdf')) {
-  console.error('The input file must be a PDF file.');
+if (!filename.toLowerCase().endsWith(".pdf")) {
+  console.error("The input file must be a PDF file.");
   process.exit(1);
 }
 
@@ -47,19 +47,19 @@ const stream = createReadStream(options.input);
 const content = new StreamSource(
   createReadableStreamFromReadable(stream),
   path.basename(options.input),
-  'application/pdf',
+  "application/pdf",
 );
 const object = await client.objects.create({
   content: content,
 });
 
-console.log('Created object:', object.id);
+console.log("Created object:", object.id);
 
 // Run analysis
 const analysisRun = await client.objects.analyze(object.id).start({
   features: [],
 });
-console.log('Analysis Started', analysisRun);
+console.log("Analysis Started", analysisRun);
 
 // Get Status
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -92,41 +92,42 @@ console.log(`\nAnalysis was completed successfully`);
 console.log(`Converting line item tables to csv file`);
 
 const target_schema = S.object()
-  .title('Invoice line item schema')
-  .description('A line item')
+  .title("Invoice line item schema")
+  .description("A line item")
   .prop(
-    'line_item_number',
+    "line_item_number",
     S.string().description(
-      'A simple identifier number for the line item which is unique and incremental',
+      "A simple identifier number for the line item which is unique and incremental",
     ),
   )
-  .prop('hs_code', S.string())
-  .prop('product_code', S.string())
-  .prop('description', S.string())
-  .prop('country_of_origin', S.string())
-  .prop('quantity', S.number().minimum(0))
-  .prop('unit_price', S.number().minimum(0))
-  .prop('amount', S.number().minimum(0))
+  .prop("hs_code", S.string())
+  .prop("product_code", S.string())
+  .prop("description", S.string())
+  .prop("country_of_origin", S.string())
+  .prop("quantity", S.number().minimum(0))
+  .prop("unit_price", S.number().minimum(0))
+  .prop("amount", S.number().minimum(0))
   .valueOf();
 
-console.log('Target Schema', target_schema);
+console.log("Target Schema", target_schema);
 
 const instructions = `A valid invoice line item table features rows such as description, quantity, unit price, and amount columns.`;
 
-const adaptTablesRun = await client.objects
-  .analyze(object.id)
-  .post('/adapt_tables', {
-    payload: {
-      instructions: instructions,
-      item_name: 'invoice line item',
-      target_schema: JSON.stringify(target_schema),
-    },
-  });
+const adaptTablesRun = await client.objects.analyze(object.id).adaptTables({
+  instructions: instructions,
+  item_name: "invoice line item",
+  target_schema: JSON.stringify(target_schema),
+});
 console.log(adaptTablesRun);
+
+if (!adaptTablesRun.workflow_run_id) {
+  console.error("Cannot continue, workflow run ID is missing");
+  process.exit(-1);
+}
 
 const status = await client.objects
   .analyze(object.id)
-  .get(`/adapt_tables/${adaptTablesRun.workflow_run_id}`, {query: {format: 'json'}});
+  .getAdaptedTables(adaptTablesRun.workflow_run_id, { format: "json" });
 
 console.log(status);
 
@@ -141,9 +142,9 @@ for (const property in status) {
   allLineItems = allLineItems.concat(status[property].data);
 }
 
-console.log('Processed Tables', stats);
+console.log("Processed Tables", stats);
 
-console.log('Number of line items: ', allLineItems.length);
+console.log("Number of line items: ", allLineItems.length);
 
 const csv = papaparse.unparse(allLineItems);
 

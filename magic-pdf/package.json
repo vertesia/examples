@@ -28,7 +28,7 @@
     "typescript-eslint": "^8.26.1"
   },
   "dependencies": {
-    "@vertesia/client": "^0.51.0",
+    "@vertesia/client": "^0.53.0",
     "commander": "^13.1.0",
     "dotenv": "^16.4.7",
     "fluent-json-schema": "^6.0.0",

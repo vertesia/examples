@@ -1,9 +1,10 @@
-# Magic PDF Sample Script 
+# Magic PDF Sample Script
 
 A command-line tool that uploads a PDF file to Vertesia and triggers the Magic PDF analysis
 
 ## Features
-- Upload a PDF and get a structured XML conversion that includes images OCR and also captures the meaning of the page layouts. 
+
+- Upload a PDF and get a structured XML conversion that includes images OCR and also captures the meaning of the page layouts.
 
 ## Installation
 
@@ -17,19 +18,26 @@ A command-line tool that uploads a PDF file to Vertesia and triggers the Magic P
 ### Setup
 
 1. Clone this repository:
+
 ```bash
 git clone https://github.com/vertesia/examples.git
 cd magic-pdf
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Create a `.env` file with your api key:
-```
-API_KEY=your_api_key
+
+```bash
+cat << EOF > .env
+STUDIO_URL=https://studio-server-prod.api.vertesia.io
+ZENO_URL=https://zeno-server-prod.api.vertesia.io
+API_KEY=
+EOF
 ```
 
 ## Usage

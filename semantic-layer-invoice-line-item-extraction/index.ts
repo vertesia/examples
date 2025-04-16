@@ -7,7 +7,6 @@ import { createReadableStreamFromReadable } from "node-web-stream-adapters";
 import {
   DocAnalyzeRunStatusResponse,
   WorkflowExecutionStatus,
-  //  DocTableJson
 } from "@vertesia/common";
 import { S } from "fluent-json-schema";
 import papaparse from "papaparse";
@@ -74,7 +73,6 @@ let analysisStatus: DocAnalyzeRunStatusResponse;
 do {
   await delay(5000);
   analysisStatus = await client.objects.analyze(object.id).getStatus();
-  //  console.log(`Progress: ${status.progress?.percent} %`);
   printProgress(`Progress: ${analysisStatus.progress?.percent} %`);
 } while (analysisStatus.status === WorkflowExecutionStatus.RUNNING);
 

@@ -11,7 +11,7 @@
     "format": "npx prettier --write \"**/*.{ts,js,json,md}\"",
     "build": "tsc --build",
     "clean": "tsc --build --clean",
-    "start": "npx bun ./index.ts -- -i fake_tax_invoice.pdf"
+    "start": "npx bun ./index.ts -- -i fake_invoice_small.pdf"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",

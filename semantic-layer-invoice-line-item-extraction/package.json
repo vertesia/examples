@@ -1,7 +1,7 @@
 {
-  "name": "vertesia-magic-pdf-get-started",
+  "name": "semantic-layer-invoice-line-item-extraction",
   "version": "0.0.1",
-  "description": "A sample project which aims to illustrate how to use Vertesia Magic PDF",
+  "description": "A sample project which aims to illustrate how to use Vertesia's semantic layer",
   "license": "APL-2.0",
   "author": "Vertesia",
   "type": "module",

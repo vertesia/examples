@@ -1,10 +1,11 @@
-# Magic PDF Sample Script
+# Semantic Layer Sample: Invoice Line Item Extraction
 
-A command-line tool that uploads a PDF file to Vertesia and triggers the Magic PDF analysis
+A command-line tool that uploads an invoice PDF file to Vertesia and triggers the semantic layer analysis.
 
 ## Features
 
 - Upload a PDF and get a structured XML conversion that includes images OCR and also captures the meaning of the page layouts.
+- Extract line items as a table in a custom format
 
 ## Installation
 
@@ -14,6 +15,7 @@ A command-line tool that uploads a PDF file to Vertesia and triggers the Magic P
 - Node.js (v18 or higher)
 - npm
 - A Vertesia Account and API Key
+- A Vertesia semantic layer subscription
 
 ### Setup
 
@@ -21,7 +23,7 @@ A command-line tool that uploads a PDF file to Vertesia and triggers the Magic P
 
 ```bash
 git clone https://github.com/vertesia/examples.git
-cd magic-pdf
+cd semantic-layer-invoice-line-item-extraction
 ```
 
 2. Install dependencies:
@@ -45,7 +47,7 @@ EOF
 Basic usage:
 
 ```bash
-npx start -- -i mypdf.pdf
+npm run start
 ```
 
 ## Contributing

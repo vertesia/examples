@@ -14,7 +14,7 @@ import papaparse from "papaparse";
 // Set up command-line interface with Commander
 const program = new Command();
 program
-  .name("magic-pdf")
+  .name("semantic-layer-sample")
   .description(
     "Analyze a PDF file and generate a structured representation in XML",
   )

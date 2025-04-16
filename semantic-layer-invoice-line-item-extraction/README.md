@@ -44,10 +44,16 @@ EOF
 
 ## Usage
 
-Basic usage:
+Basic usage with the provided sample file:
 
 ```bash
 npm run start
+```
+
+or with your own pdf file
+
+```bash
+npx bun ./index.ts -- -i <your_file>
 ```
 
 ## Contributing

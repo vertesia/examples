@@ -1,0 +1,38 @@
+{
+  "name": "semantic-layer-invoice-line-item-extraction",
+  "version": "0.0.1",
+  "description": "A sample project which aims to illustrate how to use Vertesia's semantic layer",
+  "license": "APL-2.0",
+  "author": "Vertesia",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "npx eslint",
+    "format": "npx prettier --write \"**/*.{ts,js,json,md}\"",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "start": "npx bun ./index.ts -- -i fake_invoice_small.pdf"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "@eslint/markdown": "^6.3.0",
+    "@tsconfig/node-lts": "^22.0.1",
+    "@types/bun": "latest",
+    "@types/papaparse": "^5.3.15",
+    "eslint": "^9.24.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^16.0.0",
+    "prettier": "3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.1"
+  },
+  "dependencies": {
+    "@vertesia/client": "^0.53.0",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "fluent-json-schema": "^6.0.0",
+    "node-web-stream-adapters": "^0.2.1",
+    "papaparse": "^5.5.2"
+  }
+}

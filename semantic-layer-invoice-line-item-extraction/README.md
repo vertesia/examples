@@ -15,7 +15,6 @@ A command-line tool that uploads an invoice PDF file to Vertesia and triggers th
 - Node.js (v18 or higher)
 - npm
 - A Vertesia Account and API Key
-- A Vertesia semantic layer subscription
 
 ### Setup
 
@@ -36,8 +35,8 @@ npm install
 
 ```bash
 cat << EOF > .env
-STUDIO_URL=https://studio-server-production.api.becomposable.com
-ZENO_URL=https://zeno-server-production.api.becomposable.com
+STUDIO_URL=https://staging.vertesia.io
+ZENO_URL=https://staging.vertesia.io
 API_KEY=
 EOF
 ```

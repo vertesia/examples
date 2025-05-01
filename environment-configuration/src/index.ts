@@ -26,9 +26,9 @@ program
 program
   .command("aws")
   .description("Configure AWS Bedrock Execution environment")
-  .requiredOption("-r, --region <file>", "The AWS region to use")
-  .option("--env", "The Vertesia Execution Environment Name", "AWS Bedrock")
-  .option("--role", "The AWS Role Name", "VertesiaBedrockRole")
+  .requiredOption("-r, --region <region>", "The AWS region to use")
+  .option("--env <environnment_name>", "The Vertesia Execution Environment Name", "AWS Bedrock")
+  .option("--role <role_name>", "The AWS Role Name", "VertesiaBedrockRole")
   .option("-t,--tags <tags...>", "List of tags in the format key=value")
   .action((options) => {
     const tags = options.tags?.map((tag:string) => {

@@ -11,7 +11,8 @@
     "format": "npx prettier --write \"**/*.{ts,js,json,md}\"",
     "build": "tsc --build",
     "clean": "tsc --build --clean",
-    "aws": "npx bun ./src/index.ts aws"
+    "aws": "npx bun ./src/index.ts aws",
+    "gcp": "npx bun ./src/index.ts gcp"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",

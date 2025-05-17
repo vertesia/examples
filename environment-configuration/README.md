@@ -5,6 +5,7 @@ A command-line tool to easily configure Execution environments in Vertesia
 ## Features
 
 - Configure an Execution Environment for AWS Bedrock using OpenID Connect (OIDC)
+- Configure and Execution Environment for GCP Vertex AI using OpenID Connect (OIDC)
 
 ## Installation
 
@@ -14,7 +15,14 @@ A command-line tool to easily configure Execution environments in Vertesia
 - Node.js (v22 or higher)
 - npm
 - A Vertesia Account and [API Key](https://cloud.vertesia.io/settings#keys)
+
+For AWS:
 - [AWS CLI](https://aws.amazon.com/cli/)
+- An AWS account with IAM write permissions 
+
+For GCP
+- [Gcloud CLI](https://cloud.google.com/sdk/docs/install)
+- A GCP account with IAM write permissions
 
 ### Setup
 
@@ -69,6 +77,32 @@ npm run aws -- -h
 Finally, activate models and select the default one in [Vertesia Studio](https://staging.cloud.vertesia.io/studio/environments)
 
 
+## GCP Vertex AI
+
+First, refresh your credentials using the gcloud CLI
+
+```bash
+gcloud auth application-default login
+```
+
+Then run 
+
+```bash
+npm run gcp -- -r <VERTEX_REGION>
+```
+
+The list of all the parameters can be displayed using 
+
+```
+npm run gcp -- -h
+```
+
+Finally, activate models and select the default one in [Vertesia Studio](https://staging.cloud.vertesia.io/studio/environments)
+
+
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+principal://iam.googleapis.com/projects/471805698474/locations/global/workloadIdentityPools/vertesia-pool/subject/SUBJECT_ATTRIBUTE_VALUE
+principal://iam.googleapis.com/projects/471805698474/locations/global/workloadIdentityPools/vertesia-pool/subject/652d77895674c387e105948c:654df9de09676ad3b8631dc3

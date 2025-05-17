@@ -6,7 +6,7 @@ import {
 } from "@aws-sdk/client-iam";
 import { VertesiaClient } from "@vertesia/client";
 import { SupportedProviders } from "@vertesia/common";
-import { VERTESIA_STS, VERTESIA_PROVIDER_URL } from "./common.js";
+import { VERTESIA_STS, VERTESIA_PROVIDER_URL, delay } from "./common.js";
 
 const defaultTags = [
   {
@@ -73,6 +73,9 @@ export async function configureBedrockEnvironment(
   console.log("Vertesia Environment updated successfully with AWS Role ARN.");
 
   // 7. Verify access to Bedrock models
+  console.log("Waiting for models");
+  await delay(30000);
+
   const availableModels = await vertesia.environments.listModels(
     environment.id,
   );

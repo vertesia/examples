@@ -1,0 +1,47 @@
+{
+  "name": "vertesia-agent-cli",
+  "version": "1.0.0",
+  "description": "Command-line interface for Vertesia's Agent Runner SDK",
+  "main": "lib/index.js",
+  "bin": {
+    "agent": "./lib/index.js"
+  },
+  "scripts": {
+    "lint": "npx eslint src/* --fix",
+    "format": "npx prettier --write \"**/*.{ts,js,json,md}\"",
+    "prebuild": "npm run format && npm run lint",
+    "build": "tsc --build",
+    "clean": "tsc --build --clean",
+    "start": "npx bun ./src/index.ts",
+    "dev": "npx bun ./src/index.ts",
+    "cli": "node ./lib/index.js"
+  },
+  "license": "APL-2.0",
+  "author": "Vertesia",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@eslint/compat": "^1.2.9",
+    "@eslint/js": "^9.27.0",
+    "@eslint/markdown": "^6.4.0",
+    "@types/marked-terminal": "^6.1.1",
+    "bun": "^1.2.13",
+    "eslint": "^9.27.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.0",
+    "globals": "^16.1.0",
+    "lint-staged": "^16.0.0",
+    "prettier": "3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1"
+  },
+  "dependencies": {
+    "@vertesia/client": "^0.60.0",
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "dotenv": "^16.5.0",
+    "inquirer": "^12.6.1",
+    "marked": "^15.0.12",
+    "marked-terminal": "^7.3.0"
+  }
+}

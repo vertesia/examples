@@ -1,6 +1,6 @@
-# Semantic Layer Sample: Invoice Line Item Extraction
+# Semantic DocPrep Sample: Invoice Line Item Extraction
 
-A command-line tool that uploads an invoice PDF file to Vertesia and triggers the semantic layer analysis.
+A command-line tool that uploads an invoice PDF file to Vertesia and triggers the Semantic DocPrep service.
 
 ## Features
 
@@ -22,7 +22,7 @@ A command-line tool that uploads an invoice PDF file to Vertesia and triggers th
 
 ```bash
 git clone https://github.com/vertesia/examples.git
-cd semantic-layer-invoice-line-item-extraction
+cd semantic-docprep-invoice-line-item-extraction
 ```
 
 2. Install dependencies:
